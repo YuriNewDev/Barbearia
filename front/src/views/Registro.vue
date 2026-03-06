@@ -76,7 +76,8 @@ const registrar = async () => {
   }
 
   try {
-    await axios.post('http://localhost:3000/user/registro', form);
+   await axios.post(`${import.meta.env.VITE_API_URL}/user/registro`, form);
+
     mensagem.value = '✅ Conta criada com sucesso!';
     setTimeout(() => router.push('/login'), 2000);
   } catch (err) {
