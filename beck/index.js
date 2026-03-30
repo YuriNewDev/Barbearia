@@ -36,6 +36,17 @@ app.use('/agendamentos', agendamentosRoutes);
 app.use('/finance', financeRoutes);
 app.use('/user', userRoutes);
 app.use(adminRoutes);
+app.use(express.static(path.join(__dirname, 'dist')));
+
+
+
+
+
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 // 🔐 Login
 app.post('/login', async (req, res) => {
